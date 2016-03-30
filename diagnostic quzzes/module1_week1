@@ -1,0 +1,6 @@
+# create a variable called name and assign it to a string containing your name
+ name = Denali
+
+ #Given the string "turing" retrieve the first character
+  given = "Turing"
+  
