@@ -46,14 +46,18 @@ class LinkedList
     nodes_array
     end
 
-    def to_string
-      nodes_array = get_nodes_array
-      nodes_as_strings = nodes_array.map do |node|
+    def nodes_array_as_string(array)
+      nodes_as_strings = array.map do |node|
         node.data
     end
       nodes_as_strings.join(" ")
     end
-      def insert(position, data)
+
+    def to_string
+      nodes_array_as_string(get_nodes_array)
+    end
+
+    def insert(position, data)
       current_node = @head
        counter = 1
        while counter != position
@@ -64,5 +68,11 @@ class LinkedList
         remaining_nodes = current_node.next_node
         current_node.next_node = new_node
         new_node.next_node = remaining_nodes #the new node now links the remaining nodes
+    end
+
+    def find (first_position_return, number_elements_returned)
+        nodes_array = get_nodes_array
+        new_array = nodes_array.slice(first_position_return, number_elements_returned)
+        nodes_array_as_string(new_array)
     end
 end

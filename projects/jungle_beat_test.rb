@@ -34,7 +34,6 @@ class JungleBeatTest < Minitest::Test
     assert_equal "doop", list.to_string
   end
 
-  #iteration 2
   def test_prepend_next_node
     list = LinkedList.new
     list.prepend("plop")
@@ -44,14 +43,25 @@ class JungleBeatTest < Minitest::Test
     assert_equal "doop", nodes_array[0].data = "doop"
   end
 
-  #iteration3
   def test_insert_node
     list = LinkedList.new
-    list.append('dop')
-    list.append('plop')
-    list.append('suu')
+    list.append("dop")
+    list.append("plop")
+    list.append("suu")
     list.insert(1, "woo")
 
     assert_equal "dop woo plop suu", list.to_string
+  end
+
+  def test_find_the_nodes
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    assert_equal "deep woo shi shu blop", list.to_string
+    assert_equal "shi", list.find(2, 1)
   end
 end
