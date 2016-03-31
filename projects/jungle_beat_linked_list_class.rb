@@ -75,4 +75,14 @@ class LinkedList
         new_array = nodes_array.slice(first_position_return, number_elements_returned)
         nodes_array_as_string(new_array)
     end
+
+    def includes? (data)
+     nodes_array = get_nodes_array
+     array_of_data = nodes_array.map do |node|
+       node.data
+     end
+     array_of_data.include?(data)
+    end
+
+
 end

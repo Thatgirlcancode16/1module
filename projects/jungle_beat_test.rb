@@ -63,5 +63,11 @@ class JungleBeatTest < Minitest::Test
 
     assert_equal "deep woo shi shu blop", list.to_string
     assert_equal "shi", list.find(2, 1)
+    assert_equal "woo shi shu", list.find(1, 3)
+    assert list.includes?("deep")
+    refute list.includes?("dep")
   end
+
+
+
 end
