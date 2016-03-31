@@ -37,12 +37,15 @@ class LinkedList
 
     def get_nodes_array
       nodes_array = []
-      current_node = @head
-        while current_node.next_node != nil
-          nodes_array << current_node
-          current_node = current_node.next_node
-        end
-    nodes_array << current_node
+      unless @head == nil
+        current_node = @head
+
+          while current_node.next_node != nil
+            nodes_array << current_node
+            current_node = current_node.next_node
+          end
+      nodes_array << current_node
+    end
     nodes_array
     end
 

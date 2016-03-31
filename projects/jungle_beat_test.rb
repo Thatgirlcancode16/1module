@@ -8,6 +8,7 @@ require_relative 'jungle_beat_linked_list_class'
 require_relative 'jungle_beat_class'
 
 class JungleBeatTest < Minitest::Test
+
   def test_it_has_a_node_with_data
     node = Node.new("plop")
     assert_equal "plop", node.data
@@ -102,5 +103,29 @@ class JungleBeatTest < Minitest::Test
 
     jb.append("woo hoo shu")
     assert jb.count, 6
+  end
+
+  def play_our_beats
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.play
+  end
+
+  def test_that_does_not_append_invalid_beat
+    jb = JungleBeat.new
+    jb.append("hey")
+    assert_equal jb.count, 0
+  end
+
+  def play_our_beats_different_rates_and_voice
+    jb = JungleBeat.new
+    jb.append("deep doo ditt")
+    jb.rate = 100
+    jb.voice = "Alice"
+    jb.play
+    jb.reset_rate
+    jb.reset_voice
+    assert_equal jb.voice, "Boing"
+    assert_equal jb.rate, "500"
   end
 end
