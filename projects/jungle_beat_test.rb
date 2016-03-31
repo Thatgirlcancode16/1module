@@ -1,4 +1,3 @@
-
 gem 'minitest', '~> 5.2'
 gem 'pry'
 require 'pry'
@@ -17,18 +16,21 @@ class JungleBeatTest < Minitest::Test
 
   def test_new_linked_list_head_nil
     list = LinkedList.new
+
     assert_equal nil, list.head
   end
 
   def test_append_first_node_counts_one
     list = LinkedList.new
     list.append("doop")
+
     assert_equal 1, list.count
     end
 
   def test_to_string_for_first_node
     list = LinkedList.new
     list.append("doop")
+
     assert_equal "doop", list.to_string
   end
 
@@ -38,7 +40,18 @@ class JungleBeatTest < Minitest::Test
     list.prepend("plop")
     list.prepend("doop")
     nodes_array = list.get_nodes_array
-    binding.pry
+
     assert_equal "doop", nodes_array[0].data = "doop"
+  end
+
+  #iteration3
+  def test_insert_node
+    list = LinkedList.new
+    list.append('dop')
+    list.append('plop')
+    list.append('suu')
+    list.insert(1, "woo")
+
+    assert_equal "dop woo plop suu", list.to_string
   end
 end

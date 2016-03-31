@@ -50,7 +50,19 @@ class LinkedList
       nodes_array = get_nodes_array
       nodes_as_strings = nodes_array.map do |node|
         node.data
-      end
+    end
       nodes_as_strings.join(" ")
+    end
+      def insert(position, data)
+      current_node = @head
+       counter = 1
+       while counter != position
+         current_node = current_node.next_node
+         counter += 1 #this is like saying counter + counter = 1
+      end
+        new_node = Node.new (data)
+        remaining_nodes = current_node.next_node
+        current_node.next_node = new_node
+        new_node.next_node = remaining_nodes #the new node now links the remaining nodes
     end
 end
