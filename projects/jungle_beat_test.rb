@@ -5,6 +5,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative 'jungle_beat_node_class'
 require_relative 'jungle_beat_linked_list_class'
+require_relative 'jungle_beat_class'
 
 class JungleBeatTest < Minitest::Test
   def test_it_has_a_node_with_data
@@ -89,5 +90,17 @@ class JungleBeatTest < Minitest::Test
     assert_equal "blop", list.pop
     assert_equal "shu", list.pop
     assert_equal "deep woo shi", list.to_string
+  end
+
+  def test_functionality_jungle_beat_wrapper
+    jb = JungleBeat.new
+    assert_equal nil, jb.list.head
+
+    jb.append("deep doo ditt")
+    assert_equal jb.list.head.data, "deep"
+    assert_equal jb.list.head.next_node.data, "doo"
+
+    jb.append("woo hoo shu")
+    assert jb.count, 6
   end
 end
