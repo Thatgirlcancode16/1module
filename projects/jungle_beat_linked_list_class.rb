@@ -84,5 +84,17 @@ class LinkedList
      array_of_data.include?(data)
     end
 
+    def pop
+      current_node = @head
+      next_to_last_node = nil
+        while current_node.next_node != nil
+          next_to_last_node = current_node
+          current_node = current_node.next_node
+        end
+        #this removes last node by setting next to last .next_node pointer to nil
+      next_to_last_node.next_node = nil
+      #return the one we removed
+      current_node.data
+    end
 
 end
