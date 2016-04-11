@@ -1,0 +1,9 @@
+this is some sentence
+
+print this out on terminal when:
+
+cat <file_name.extension> .... print all\good for short files
+less <file_name.extension> .... print all\good for larger files
+
+
+end this file
